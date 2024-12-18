@@ -26,14 +26,16 @@ public class LawyerController {
     }
 
     @PostMapping
-    public Lawyer addLawyer(@RequestBody Lawyer lawyer) {
-        return lawyerService.addLawyer(lawyer); // La logique d'exception est déjà gérée dans le service
+    public ResponseEntity<Lawyer> addLawyer(@RequestBody Lawyer lawyer) {
+        Lawyer l = lawyerService.addLawyer(lawyer); // La logique d'exception est déjà gérée dans le service
+    return ResponseEntity.ok(l);
     }
 
 
     @GetMapping
-    public List<Lawyer> getAllLawyers(){
-        return lawyerService.getAllLawyers();
+    public ResponseEntity<List<Lawyer>> getAllLawyers(){
+        List<Lawyer> lawyers= lawyerService.getAllLawyers();
+        return ResponseEntity.ok(lawyers);
     }
 
     @DeleteMapping("/{id}")

@@ -14,6 +14,8 @@ public interface IClientServce {
 
     Client getClientById(Long id);
 
+    Client getClientByName(String fname, String lname);
+
     Client addClient(Client client);
 
     Client deleteClientById(Long id);

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Long> {
-    @Query("SELECT l FROM Lawyer l WHERE l.firstName = :fname AND l.lastName = :lname")
+    @Query("SELECT c FROM Client c WHERE c.firstName = :fname AND c.lastName = :lname")
     Client getClientByName(@Param("fname") String fname , @Param("lname") String lname);
-    @Query("SELECT l FROM Lawyer l WHERE l.email = :email")
+    @Query("SELECT c FROM Client c WHERE c.email = :email")
     Client getClientByEmail(@Param("email") String email);
 }

@@ -1,7 +1,7 @@
 package com.enicar.soc.services;
 
 import com.enicar.soc.entities.Lawyer;
-import com.enicar.soc.exceptions.LawyerAlreadyExistsException;
+import com.enicar.soc.exceptions.AlreadyExistsException;
 import com.enicar.soc.exceptions.NotFoundException;
 import com.enicar.soc.repositories.LawyerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +39,7 @@ public class LawyerServiceImp implements ILawyerService {
 
         if (existingLawyer != null) {
             // crée et lance une exception si l'avocat existe déjà
-            throw new LawyerAlreadyExistsException("A lawyer with this email already exists.");
+            throw new AlreadyExistsException("A lawyer with this email already exists.");
         }
 
         return lawyerRepository.save(lawyer);

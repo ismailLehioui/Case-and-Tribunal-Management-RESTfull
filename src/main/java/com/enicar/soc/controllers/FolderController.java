@@ -1,20 +1,38 @@
-/*package com.enicar.soc.controllers;
+package com.enicar.soc.controllers;
 
 import com.enicar.soc.entities.Folder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.enicar.soc.services.FolderService;
+import jakarta.websocket.server.PathParam;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("folders")
+@RequestMapping("/folders")
 public class FolderController {
-
+    FolderService folderService;
 
     @GetMapping
-    public List<Folder> getAllFolders(){
-        return
+    public ResponseEntity<List<Folder>> getAllFolders(){
+        List<Folder> folders = folderService.getAllFolder();
+        return ResponseEntity.ok(folders);
+    }
+    @GetMapping("/search")
+    public ResponseEntity<Folder> getFolderByName(@RequestParam("name") String name){
+        Folder f = folderService.getFolderByName(name);
+        return ResponseEntity.ok(f);
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Folder> getFolderById(@PathVariable("id") Long id){
+        return ResponseEntity.ok(folderService.getFolderById(id));
+    }
+    @PostMapping
+    public ResponseEntity<Folder> addFolder(@RequestBody Folder folder){
+        return ResponseEntity.ok(folderService.addFolder(folder));
+    }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Folder> deleteFolder(@PathVariable("id") Long id){
+        return ResponseEntity.ok(folderService.deleteFolder(id));
     }
 }
-*/
