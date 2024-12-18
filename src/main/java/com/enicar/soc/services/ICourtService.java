@@ -8,12 +8,14 @@ import java.util.List;
 @Service
 public interface ICourtService {
 
-    Court getById(Long id);
+    Court getCourtById(Long id);
+
+    Court getCourtByName(String name);
 
     List<Court> getAllCourts();
 
     Court addCourt(Court court);
 
-    Court deletecourt(Long id);
+    Court deleteCourt(Long id);
 
 }

@@ -15,5 +15,7 @@ public interface ILawyerService {
 
     List<Lawyer> getAllLawyers();
 
+    Lawyer getLAwyerById(Long id);
+
     Lawyer deleteLawyer(Long id);
 }

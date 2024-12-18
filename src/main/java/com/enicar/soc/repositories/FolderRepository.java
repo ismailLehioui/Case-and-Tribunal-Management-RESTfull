@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FolderRepository extends JpaRepository<Folder, Long> {
-    @Query("SELECT f FROM Folder WHERE name = :name")
+    @Query("SELECT f FROM Folder f WHERE f.name = :name")
     public Folder getFolderByName(@Param("name") String name);
 }

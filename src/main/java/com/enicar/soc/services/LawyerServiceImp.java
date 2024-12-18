@@ -14,11 +14,12 @@ public class LawyerServiceImp implements ILawyerService {
     @Autowired
     LawyerRepository lawyerRepository;
 
-    /*@Override
-    public Boolean getLAwyerById(Long id){
-
-        return lawyerRespository.findById(id).orElseThrow();
-    }*/
+    @Override
+    public Lawyer getLAwyerById(Long id){
+        return lawyerRepository.findById(id).orElseThrow(
+                ()-> new NotFoundException("this folder not found !")
+        );
+    }
 
     @Override
     public Lawyer getLawyerByName(String fname, String lname){

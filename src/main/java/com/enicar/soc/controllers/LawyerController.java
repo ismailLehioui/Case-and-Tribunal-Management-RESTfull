@@ -37,6 +37,10 @@ public class LawyerController {
         List<Lawyer> lawyers= lawyerService.getAllLawyers();
         return ResponseEntity.ok(lawyers);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Lawyer> getLawyerById(@PathVariable("id") Long id){
+        return ResponseEntity.ok(lawyerService.getLAwyerById(id));
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Map<String, Object>> deleteLawyer(@PathVariable("id") Long id){

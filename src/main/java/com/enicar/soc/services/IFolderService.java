@@ -14,7 +14,7 @@ public interface IFolderService {
 
     Folder getFolderById(Long id);
 
-    List<Folder> getAllFolder();
+    List<Folder> getAllFolders();
 
     Folder deleteFolder(Long id);
 }

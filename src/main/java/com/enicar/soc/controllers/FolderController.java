@@ -2,7 +2,7 @@ package com.enicar.soc.controllers;
 
 import com.enicar.soc.entities.Folder;
 import com.enicar.soc.services.FolderService;
-import jakarta.websocket.server.PathParam;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +11,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/folders")
 public class FolderController {
+    @Autowired
     FolderService folderService;
 
     @GetMapping
     public ResponseEntity<List<Folder>> getAllFolders(){
-        List<Folder> folders = folderService.getAllFolder();
+        List<Folder> folders = folderService.getAllFolders();
         return ResponseEntity.ok(folders);
     }
     @GetMapping("/search")

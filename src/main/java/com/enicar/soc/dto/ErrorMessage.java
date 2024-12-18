@@ -1,8 +1,4 @@
-package com.enicar.soc.models;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package com.enicar.soc.dto;
 
 
 public class ErrorMessage {

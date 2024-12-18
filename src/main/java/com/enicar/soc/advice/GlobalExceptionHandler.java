@@ -2,7 +2,7 @@ package com.enicar.soc.advice;
 
 
 import com.enicar.soc.exceptions.*;
-import com.enicar.soc.models.ErrorMessage;
+import com.enicar.soc.dto.ErrorMessage;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
