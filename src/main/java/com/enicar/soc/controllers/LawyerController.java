@@ -18,11 +18,13 @@ public class LawyerController {
     LawyerServiceImp lawyerService;
 
     @GetMapping("/search")
-    public ResponseEntity<Lawyer> getLawyerByName(
+    public ResponseEntity<Map<String,Lawyer>> getLawyerByName(
             @RequestParam("fname") String fname,
             @RequestParam("lname") String lname) {
         Lawyer lawyer = lawyerService.getLawyerByName(fname, lname);
-        return ResponseEntity.ok(lawyer);
+        Map<String, Lawyer> map = new HashMap<>();
+        map.put("avocat trouvé avec succes", lawyer);
+        return ResponseEntity.ok(map);
     }
 
     @PostMapping
@@ -44,6 +46,8 @@ public class LawyerController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Map<String, Object>> deleteLawyer(@PathVariable("id") Long id){
+        System.out.println("controller");
+
         Lawyer lawyer= lawyerService.deleteLawyer(id);
         Map<String, Object> response= new HashMap<>();
         response.put("Lawyer deleted", lawyer);

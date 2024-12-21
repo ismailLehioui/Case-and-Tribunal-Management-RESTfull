@@ -1,6 +1,10 @@
 package com.enicar.soc.controllers;
 
 import com.enicar.soc.entities.Client;
+import com.enicar.soc.entities.Lawyer;
+import com.enicar.soc.repositories.CourtRepository;
+import com.enicar.soc.repositories.FolderRepository;
+import com.enicar.soc.repositories.LawyerRepository;
 import com.enicar.soc.services.ClientService;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +19,13 @@ import java.util.List;
 public class ClientController {
     @Autowired
     ClientService clientService;
+    @Autowired
+    FolderRepository folderRepository;
+    @Autowired
+    LawyerRepository lawyerRepository;
+    @Autowired
+    CourtRepository courtRepository;
+
 
     @GetMapping("/search")
     public ResponseEntity<Client> getClientByName(@RequestParam("fname") String fname, @RequestParam("lname") String lname){

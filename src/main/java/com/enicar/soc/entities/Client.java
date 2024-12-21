@@ -1,5 +1,6 @@
 package com.enicar.soc.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class Client {
     private Lawyer lawyerClient;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clientFolder",  orphanRemoval = true)
+    @JsonIgnore
     private Set<Folder> folders;
 
     public Long getClientId() {

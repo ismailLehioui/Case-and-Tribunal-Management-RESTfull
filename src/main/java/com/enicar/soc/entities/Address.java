@@ -1,5 +1,6 @@
 package com.enicar.soc.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,9 @@ public class Address {
     private String street;
     private String city;
     private String state;
+    @JsonIgnore
     private String postalCode;
+    @JsonIgnore
     private String country;
 
     public String getPostalCode() {

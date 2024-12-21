@@ -1,5 +1,6 @@
 package com.enicar.soc.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -14,12 +15,15 @@ public class Court {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "court_id")
     private Long courtId;
+
     private String name;
+
     @Column(name = "court_address")
     private Address courtAddress;
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "courtFolder")
+    @JsonIgnore
     private Set<Folder> folders;
     @ManyToMany(cascade = CascadeType.ALL)
     /*@JoinTable(
@@ -27,6 +31,7 @@ public class Court {
             joinColumns = @JoinColumn(name = "court_id"),
             inverseJoinColumns = @JoinColumn(name = "lawyer_id")
     )*/
+    @JsonIgnore
     private Set<Lawyer> lawyers;
 
     public Long getCourtId() {

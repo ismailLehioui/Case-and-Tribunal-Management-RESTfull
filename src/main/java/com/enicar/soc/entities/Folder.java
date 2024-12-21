@@ -15,12 +15,16 @@ public class Folder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "folder_id")
     private Long folderId;
+
     @Column(nullable = false)
     private String name;
+
     @Column(name = "creation_date", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date creationDate;
+
     private String description;
+
     @Enumerated(EnumType.STRING)
     private FolderState state;
 

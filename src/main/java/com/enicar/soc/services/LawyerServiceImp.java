@@ -52,6 +52,8 @@ public class LawyerServiceImp implements ILawyerService {
         Lawyer lawyer = lawyerRepository.findById(id).orElseThrow(
                 ()-> new NotFoundException("the lawyer that you want to delete are not found !")
         );
+        System.out.println("service");
+
         lawyerRepository.deleteById(id);
         return lawyer;
     }

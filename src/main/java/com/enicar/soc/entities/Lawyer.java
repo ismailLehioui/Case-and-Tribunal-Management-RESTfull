@@ -1,6 +1,7 @@
 package com.enicar.soc.entities;
 
 import com.enicar.soc.enums.Speciality;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -29,10 +30,13 @@ public class Lawyer {
     private String telephone;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "lawyerClient", orphanRemoval = true)
+    @JsonIgnore
     Set<Client> clients;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "lawyerFolder", orphanRemoval = true)
+    @JsonIgnore
     Set<Folder> folders;
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "lawyers")
+    @JsonIgnore
     private Set<Court> courts;
 
 
